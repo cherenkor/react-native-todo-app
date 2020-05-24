@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {Navbar} from "./src/Navbar";
-import {AddTodo} from "./src/AddTodo";
-import {Todo} from "./src/Todo";
+import {StyleSheet, View} from 'react-native';
+import {Navbar} from "./src/components/Navbar";
+import {AddTodo} from "./src/components/AddTodo";
+import {TodoList} from "./src/components/TodoList";
 
 export default function App() {
     const [todos, setTodos] = useState([]);
@@ -21,14 +21,8 @@ export default function App() {
     <View>
       <Navbar title="Todo App" />
         <View style={styles.container}>
-           <AddTodo onSubmit={addTodo} />
-           <View>
-               {
-                   todos.map(({ id, title }) => (
-                       <Todo key={id} title={title} />
-                   ))
-               }
-           </View>
+           <AddTodo todos={todos} onSubmit={addTodo} />
+           <TodoList todos={todos} />
         </View>
     </View>
   );
