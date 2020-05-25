@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native";
 
-export const Todo = ({ todo, onRemove }) => {
+export const Todo = ({ todo, removeTodo }) => {
   const onPressHandler = () => {
     Alert.alert("Delete", "Do you want to delete this todo?", [
       {
@@ -11,7 +11,7 @@ export const Todo = ({ todo, onRemove }) => {
       },
       {
         text: "Yes",
-        onPress: () => onRemove(todo.id),
+        onPress: () => removeTodo(todo.id),
       },
     ]);
   };
@@ -20,7 +20,7 @@ export const Todo = ({ todo, onRemove }) => {
     <TouchableOpacity
       activeOpacity={0.5}
       onPress={onPressHandler}
-      onLongPress={onRemove.bind(null, todo.id)}
+      onLongPress={removeTodo.bind(null, todo.id)}
     >
       <View style={styles.todo}>
         <Text>{todo.title}</Text>

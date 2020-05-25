@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, StyleSheet, Alert, TextInput, Button } from "react-native";
 import { primary } from "../constants/colors";
 
-export const AddTodo = ({ onSubmit, todos }) => {
+export const AddTodo = ({ addTodo, todos }) => {
   const [value, setValue] = useState("");
   const todoExists = (title) => todos.some((todo) => title === todo.title);
   const pressHandler = () => {
@@ -14,7 +14,7 @@ export const AddTodo = ({ onSubmit, todos }) => {
       return Alert.alert(`Todo with this title already added`);
     }
 
-    onSubmit(value);
+    addTodo(value);
     setValue("");
   };
 
