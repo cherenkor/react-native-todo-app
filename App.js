@@ -6,7 +6,7 @@ import TodoScreen from "./src/screens/TodoScreen";
 import { todos as todoMocks } from "./src/mocks";
 
 export default function App() {
-  const [todoId, setTodoId] = useState();
+  const [todoId, setTodoId] = useState("2");
   const [todos, setTodos] = useState(todoMocks);
 
   const addTodo = (title) => {

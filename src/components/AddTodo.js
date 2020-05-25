@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, StyleSheet, Alert, TextInput, Button } from "react-native";
-import { primary } from "../constants/colors";
+import { THEME } from "../theme";
 
 export const AddTodo = ({ addTodo, todos }) => {
   const [value, setValue] = useState("");
@@ -45,6 +45,6 @@ const styles = StyleSheet.create({
     padding: 10,
     borderStyle: "solid",
     borderBottomWidth: 2,
-    borderBottomColor: primary,
+    borderBottomColor: THEME.COLORS.PRIMARY_COLOR,
   },
 });
