@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 export const Todo = ({ todo, removeTodo, setTodoId }) => {
   const onPressHandler = () => {
@@ -7,17 +7,7 @@ export const Todo = ({ todo, removeTodo, setTodoId }) => {
   };
 
   const onLongPressHandler = () => {
-    Alert.alert("Delete", "Do you want to delete this todo?", [
-      {
-        text: "No",
-        onPress: () => console.log("Cancel Removing"),
-        style: "cancel",
-      },
-      {
-        text: "Yes",
-        onPress: () => removeTodo(todo.id),
-      },
-    ]);
+    removeTodo(todo.id);
   };
 
   return (

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Alert } from "react-native";
 import { Navbar } from "./src/components/Navbar";
 import MainScreen from "./src/screens/MainScreen";
 import TodoScreen from "./src/screens/TodoScreen";
 import { todos as todoMocks } from "./src/mocks";
 
 export default function App() {
-  const [todoId, setTodoId] = useState("2");
+  const [todoId, setTodoId] = useState(null);
   const [todos, setTodos] = useState(todoMocks);
 
   const addTodo = (title) => {
@@ -20,7 +20,40 @@ export default function App() {
   };
 
   const removeTodo = (id) => {
-    setTodos((prev) => prev.filter((todo) => todo.id !== id));
+    const { title } = todos.find((t) => t.id === id);
+
+    Alert.alert(
+      "Delete",
+      `Do you want to delete todo: '${title}'?`,
+      [
+        {
+          text: "No",
+          style: "cancel",
+        },
+        {
+          text: "Yes",
+          onPress: () => {
+            setTodoId(null);
+            setTodos((prev) => prev.filter((todo) => todo.id !== id));
+          },
+        },
+      ],
+      {
+        cancelable: false,
+      }
+    );
+  };
+
+  const updateTodoTitle = ({ id, title }) => {
+    setTodos((prev) =>
+      prev.map((todo) => {
+        if (todo.id === id) {
+          todo.title = title;
+        }
+
+        return todo;
+      })
+    );
   };
 
   let content = (
@@ -34,7 +67,14 @@ export default function App() {
 
   if (todoId) {
     const selectedTodo = todos.find(({ id }) => id === todoId);
-    content = <TodoScreen todo={selectedTodo} goBack={() => setTodoId(null)} />;
+    content = (
+      <TodoScreen
+        todo={selectedTodo}
+        goBack={() => setTodoId(null)}
+        updateTodoTitle={updateTodoTitle}
+        removeTodo={removeTodo}
+      />
+    );
   }
 
   return (
