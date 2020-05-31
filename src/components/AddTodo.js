@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Alert, TextInput, Button } from "react-native";
+import { View, StyleSheet, Alert, TextInput, Keyboard } from "react-native";
 import { THEME } from "../theme";
+import { AntDesign } from "@expo/vector-icons";
 
 export const AddTodo = ({ addTodo, todos }) => {
   const [value, setValue] = useState("");
@@ -16,6 +17,7 @@ export const AddTodo = ({ addTodo, todos }) => {
 
     addTodo(value);
     setValue("");
+    Keyboard.dismiss();
   };
 
   return (
@@ -28,7 +30,13 @@ export const AddTodo = ({ addTodo, todos }) => {
         autoCorrect={false}
         autoCapitalize="none"
       />
-      <Button title="Add" onPress={pressHandler} />
+      <AntDesign.Button
+        name="pluscircleo"
+        style={styles.button}
+        onPress={pressHandler}
+      >
+        Add
+      </AntDesign.Button>
     </View>
   );
 };
@@ -46,5 +54,8 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     borderBottomWidth: 2,
     borderBottomColor: THEME.COLORS.PRIMARY_COLOR,
+  },
+  button: {
+    backgroundColor: THEME.COLORS.SUCCESS_COLOR,
   },
 });

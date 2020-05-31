@@ -2,7 +2,7 @@ import React from "react";
 import { Text, StyleSheet } from "react-native";
 
 const AppTextBold = (props) => (
-  <Text style={{ ...styles.default, ...props.styles }}>{props.children}</Text>
+  <Text style={{ ...styles.default, ...props.style }}>{props.children}</Text>
 );
 
 const styles = StyleSheet.create({
