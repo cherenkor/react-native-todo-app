@@ -7,6 +7,7 @@ import { Navbar } from "./src/components/Navbar";
 import MainScreen from "./src/screens/MainScreen";
 import TodoScreen from "./src/screens/TodoScreen";
 import { todos as todoMocks } from "./src/mocks";
+import { THEME } from "./src/theme";
 
 const loadApplication = async () => {
   await Font.loadAsync({
@@ -108,7 +109,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 30,
+    paddingHorizontal: THEME.SPACES.PADDING_HORIZONTAL,
     paddingVertical: 20,
   },
 });

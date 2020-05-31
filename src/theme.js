@@ -6,4 +6,7 @@ export const THEME = {
     INFO_COLOR: "#757575",
     SUCCESS_COLOR: "#ffba5a",
   },
+  SPACES: {
+    PADDING_HORIZONTAL: 30,
+  },
 };
