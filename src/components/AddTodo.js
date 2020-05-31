@@ -6,7 +6,7 @@ export const AddTodo = ({ addTodo, todos }) => {
   const [value, setValue] = useState("");
   const todoExists = (title) => todos.some((todo) => title === todo.title);
   const pressHandler = () => {
-    if (!value) {
+    if (!value.trim()) {
       return Alert.alert(`Title can not be empty`);
     }
 
@@ -23,7 +23,7 @@ export const AddTodo = ({ addTodo, todos }) => {
       <TextInput
         style={styles.textInput}
         value={value}
-        onChangeText={(text) => setValue(text.trim())}
+        onChangeText={(text) => setValue(text)}
         placeholder="Enter todo title"
         autoCorrect={false}
         autoCapitalize="none"
