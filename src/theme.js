@@ -1,8 +1,9 @@
 export const THEME = {
   COLORS: {
-    PRIMARY_COLOR: "#FFAE01",
-    DANGER_COLOR: "#E53935",
+    PRIMARY_COLOR: "#2c7873",
+    DANGER_COLOR: "#d92027",
+    WARNING_COLOR: "#ffba5a",
     INFO_COLOR: "#757575",
-    SUCCESS_COLOR: "#21bf73",
+    SUCCESS_COLOR: "#ffba5a",
   },
 };

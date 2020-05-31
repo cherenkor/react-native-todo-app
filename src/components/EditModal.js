@@ -38,7 +38,9 @@ const EditModal = ({ value, visible, onCancel, onSave }) => {
           <AppButton onPress={onCancel} color={THEME.COLORS.DANGER_COLOR}>
             Cancel
           </AppButton>
-          <AppButton onPress={onSaveHanlder}>Save</AppButton>
+          <AppButton onPress={onSaveHanlder} color={THEME.COLORS.SUCCESS_COLOR}>
+            Save
+          </AppButton>
         </View>
       </View>
     </Modal>
