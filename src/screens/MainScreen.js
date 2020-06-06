@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, StyleSheet, Image } from "react-native";
 import { AddTodo } from "../components/AddTodo";
 import { TodoList } from "../components/TodoList";
+import { TodoContext } from "../context/todo/todoContext";
+import { ScreenContext } from "../context/screen/screenContext";
 
-const MainScreen = ({ todos, addTodo, removeTodo, setTodoId }) => {
+const MainScreen = () => {
+  const { todos, addTodo, removeTodo } = useContext(TodoContext);
+  const { changeScreen } = useContext(ScreenContext);
   let content = (
-    <TodoList todos={todos} removeTodo={removeTodo} setTodoId={setTodoId} />
+    <TodoList todos={todos} removeTodo={removeTodo} setTodoId={changeScreen} />
   );
 
   if (todos.length === 0) {

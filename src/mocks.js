@@ -9,6 +9,6 @@ export const todos = [
   },
   {
     id: "3",
-    title: "Earn $10K per month",
+    title: "Earn €6K per month",
   },
 ];
